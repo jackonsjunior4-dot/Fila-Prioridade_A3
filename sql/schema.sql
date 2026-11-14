@@ -1,7 +1,7 @@
 
 -- schema.sql - Estrutura do banco de dados (A3 - Fila de Prioridade)
 -- Pronto-socorro com Protocolo de Manchester, aging e auditoria.
--- Cobre: RN08 (log de entrada e saida) e RN12 (log de promocoes por aging)
+-- (log de entrada e saida) e (log de promocoes por aging)
 -- Datas/horas sao guardadas como texto no formato 'AAAA-MM-DD HH:MM:SS'
 
 -- Ficha do paciente (cadastro e triagem com enfermeiro)
