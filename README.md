@@ -1,5 +1,3 @@
-# Fila-Prioridade_A3
-
 
 # Fila de Prioridade - Emergência Hospitalar
 
@@ -12,7 +10,7 @@ Projeto A3 de Programação de Soluções Computacionais (UNIFACS).
 - Thalles Mendes
 - Fernando de Andrade Santos
 - Larissa Aparecida Barion da Silva Sena
-- João Jackson dos Santos  Reis Junior
+- João Jackson dos Santos Reis Junior
 - Emanuel Barbosa Oliveira
 - Fernando Carvalho Bandeira Junior
 
@@ -45,7 +43,7 @@ streamlit run app.py
 
 ## Regras de negócio
 
-O sistema implementa as regras RN1 a RN15: cadastro, triagem pelo Protocolo de Manchester (5 níveis), ordenação por gravidade com FIFO no empate, tempo máximo por nível (SLA), aging com limite no nível 3, logs de auditoria, métricas, histórico e modo de simulação. A descrição completa está no relatório técnico.
+O sistema implementa as regras RN01 a RN15: cadastro, triagem pelo Protocolo de Manchester (5 níveis), ordenação por gravidade com FIFO no empate, tempo máximo por nível (SLA), aging com limite no nível 3, logs de auditoria, métricas, histórico e modo de simulação. A descrição completa está no relatório técnico.
 
 ## Estrutura do projeto
 
