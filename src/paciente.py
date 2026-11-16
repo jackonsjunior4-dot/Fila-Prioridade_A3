@@ -54,7 +54,6 @@ class Paciente:
         return "Dentro do prazo"
 
 
-
     def atualizar_nivel_efetivo(self, agora=None):
         if agora is None:
             agora = datetime.now()
