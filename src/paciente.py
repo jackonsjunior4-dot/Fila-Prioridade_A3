@@ -52,4 +52,28 @@ class Paciente:
             return "Prazo excedido"
 
         return "Dentro do prazo"
+
+
+
+    def atualizar_nivel_efetivo(self, agora=None):
+        if agora is None:
+            agora = datetime.now()
+
+        if self.nivel_original <= 2:
+            self.nivel_efetivo = self.nivel_original
+            return self.nivel_efetivo
+
+        tempo_espera = self.calcular_tempo_espera(agora)
+
+        intervalo = self.TEMPOS_MAXIMOS[self.nivel_original] / 2
+
+        promocoes = int(max(0, tempo_espera) // intervalo)
+
+        self.nivel_efetivo = max(
+            3,
+            self.nivel_original - promocoes
+        )
+
+        return self.nivel_efetivo
+
         
