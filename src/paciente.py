@@ -94,4 +94,21 @@ print("Nivel original:", paciente.nivel_original)
 print("Nivel efetivo:", paciente.atualizar_nivel_efetivo())
 
 
+
+# TESTE DO AGING
+from datetime import timedelta
+
+chegada = datetime.now() - timedelta(minutes=120)
+
+paciente = Paciente(
+    "Joao",
+    "12345",
+    chegada,
+    "Enfermeira Maria",
+    5
+)
+
+print("Nivel original:", paciente.nivel_original)
+print("Nivel efetivo:", paciente.atualizar_nivel_efetivo())
+
         
