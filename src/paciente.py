@@ -94,3 +94,4 @@ class Paciente:
             })
 
         return self.nivel_efetivo
+        
