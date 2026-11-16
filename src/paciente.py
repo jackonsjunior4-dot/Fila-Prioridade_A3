@@ -75,4 +75,23 @@ class Paciente:
 
         return self.nivel_efetivo
 
+
+
+from datetime import datetime, timedelta
+
+# Simulação de paciente azul esperando 120 minutos
+chegada = datetime.now() - timedelta(minutes=120)
+
+paciente = Paciente(
+    "Joao",
+    "12345",
+    chegada,
+    "Enfermeira Maria",
+    5
+)
+
+print("Nivel original:", paciente.nivel_original)
+print("Nivel efetivo:", paciente.atualizar_nivel_efetivo())
+
+
         
