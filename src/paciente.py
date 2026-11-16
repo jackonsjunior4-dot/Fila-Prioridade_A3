@@ -52,5 +52,4 @@ class Paciente:
             return "Prazo excedido"
 
         return "Dentro do prazo"
-    
-
+        
