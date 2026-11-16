@@ -11,9 +11,14 @@ class Paciente:
         5: 240
     }
 
-    def __init__(self, nome, identificacao, chegada,
-                 enfermeiro, nivel_original):
-
+    def __init__(
+        self,
+        nome,
+        identificacao,
+        chegada,
+        enfermeiro,
+        nivel_original
+    ):
         if not isinstance(nome, str) or not nome.strip():
             raise ValueError("O nome e obrigatorio.")
 
@@ -31,6 +36,8 @@ class Paciente:
 
         self.nome = nome.strip()
         self.identificacao = identificacao.strip()
+        self.id = self.identificacao
+
         self.chegada = chegada
         self.enfermeiro = enfermeiro.strip()
 
@@ -44,7 +51,7 @@ class Paciente:
             agora = datetime.now()
 
         if not isinstance(agora, datetime):
-            raise ValueError("O horario atual deve ser uma data e hora.")
+            raise ValueError("Horario atual invalido.")
 
         tempo = agora - self.chegada
 
@@ -65,9 +72,10 @@ class Paciente:
             agora = datetime.now()
 
         if not isinstance(agora, datetime):
-            raise ValueError("O horario atual deve ser uma data e hora.")
+            raise ValueError("Horario atual invalido.")
 
-        # Niveis vermelho e laranja nao sofrem aging.
+        # Pacientes vermelhos e laranjas
+        # nao sofrem promocao por aging.
         if self.nivel_original <= 2:
             return self.nivel_efetivo
 
@@ -78,27 +86,31 @@ class Paciente:
         if intervalo <= 0:
             return self.nivel_efetivo
 
-        quantidade_promocoes = int(tempo_espera // intervalo)
+        quantidade_promocoes = int(
+            tempo_espera // intervalo
+        )
 
         novo_nivel = max(
             3,
             self.nivel_original - quantidade_promocoes
         )
 
-        # Registra cada promocao realizada.
+        # Registra cada promocao com seu horario correto.
         while self.nivel_efetivo > novo_nivel:
             self.nivel_efetivo -= 1
 
-            momento_promocao = self.chegada + timedelta(
-                minutes=intervalo * (
-                    self.nivel_original - self.nivel_efetivo
-                )
+            numero_promocao = (
+                self.nivel_original - self.nivel_efetivo
+            )
+
+            horario_promocao = self.chegada + timedelta(
+                minutes=intervalo * numero_promocao
             )
 
             self.historico_aging.append({
                 "nivel_original": self.nivel_original,
                 "nivel_efetivo": self.nivel_efetivo,
-                "timestamp": momento_promocao.isoformat()
+                "timestamp": horario_promocao
             })
 
         return self.nivel_efetivo
