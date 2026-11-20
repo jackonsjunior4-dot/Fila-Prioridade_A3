@@ -56,7 +56,7 @@ O sistema implementa as regras RN01 a RN15: cadastro, triagem pelo Protocolo de 
 
 - Relatório técnico: (link em breve)
 - Diagrama de classes UML: (link em breve)
-- Dicionário de métodos: (link em breve)
+
 
 ## Testes
 
