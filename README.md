@@ -9,7 +9,7 @@ Projeto A3 de Programação de Soluções Computacionais (UNIFACS).
 
 - Thalles Mendes
 - Fernando de Andrade Santos
-- Larissa Aparecida Barion da Silva Sena
+- Larissa Aparecida Bairon da Silva Sena
 - João Jackson dos Santos Reis Junior
 - Emanuel Barbosa Oliveira
 - Fernando Carvalho Bandeira Junior
