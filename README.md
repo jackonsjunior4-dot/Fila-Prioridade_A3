@@ -62,4 +62,8 @@ O sistema implementa as regras RN01 a RN15: cadastro, triagem pelo Protocolo de 
 
 ```bash
 python tests/test_log_simulador.py
+python tests/test_pessoa_enfermeiro.py
+python tests/test_integracao.py
 ```
+
+O `test_integracao.py` roda o cenário do relatório (João, Maria e Pedro): ordem por gravidade, aging, limite do nível 3, alertas de SLA, atendimento, métricas e `logs.sql` executável.
