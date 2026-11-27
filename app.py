@@ -177,6 +177,7 @@ with aba_fila:
             lambda linha: [f"background-color: {CORES_LINHA.get(linha['Cor'], '#ffffff')}; color: #111111"] * len(linha),
             axis=1,
         )
+        estilo = estilo.format({"Espera (min)": "{:.0f}"})
         st.dataframe(estilo, width="stretch", hide_index=True)
         st.caption("Ordem: nível efetivo (gravidade) e, no empate, ordem de chegada (FIFO).")
 
