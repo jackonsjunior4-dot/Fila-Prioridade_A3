@@ -1,3 +1,5 @@
+from src.nivel import NivelManchester
+
 
 def calcular_metricas(atendimentos):
     """
@@ -55,3 +57,42 @@ def calcular_metricas(atendimentos):
         "percentual_no_prazo": round(percentual_no_prazo, 2),
         "tempo_medio_por_nivel": tempo_medio_por_nivel
     }
+
+
+class Metricas:
+    """
+    Classe que organiza o cálculo acima (RN13).
+    Recebe a lista de atendimentos e devolve os indicadores.
+    """
+
+    def __init__(self, atendimentos=None):
+        self.__atendimentos = list(atendimentos or [])
+
+    @classmethod
+    def do_historico(cls, historico):
+        """
+        Monta as métricas a partir do histórico do RepositorioLog
+        (lista de dicionários devolvida por listar_historico()).
+        """
+        atendimentos = []
+        for linha in historico:
+            nivel = linha["nivel_original"]
+            atendimentos.append({
+                "status": "atendido",
+                "nivel": nivel,
+                "tempo_espera": linha["tempo_espera_min"],
+                "prazo": NivelManchester.por_numero(nivel).tempo_max_min,
+            })
+        return cls(atendimentos)
+
+    def calcular(self):
+        return calcular_metricas(self.__atendimentos)
+
+    def total_atendidos(self):
+        return self.calcular()["total_atendidos"]
+
+    def percentual_no_prazo(self):
+        return self.calcular()["percentual_no_prazo"]
+
+    def tempo_medio_por_nivel(self):
+        return self.calcular()["tempo_medio_por_nivel"]
